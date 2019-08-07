@@ -15,7 +15,11 @@ app.get('/weather', (req, res) => {
             if (weather === undefined) {
                 throw new Error(`City ${req.query.city} not found!`)
             }
-            console.log(`Temperature in ${weather.name} is ${weather.main.temp}°C`)
+
+            res.json({
+                city: weather.name,
+                temp: weather.main.temp 
+            })
         });
     }
 })
