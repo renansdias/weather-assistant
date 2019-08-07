@@ -3,6 +3,10 @@ var nodejsWeatherApp = require('nodejs-weather-app');
 const app            = express()
 const port           = process.env.PORT || 3000
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Weather Assistant!')
+})
+
 app.get('/weather', (req, res) => {
     if (req.query.city === undefined) {
         throw new Error("Error: use city as query string")
